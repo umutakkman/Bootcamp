@@ -1,0 +1,37 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<form asp-controller="Home" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Stock" class="form-label"></label>
+        <input asp-for="Stock" class="form-control">
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+    <div class="from-group mb3">
+        <label class="form-label">Ürün Fotoğrafı</label>
+        <input type="file" name="imageFile" id="imageFile" class="form-control mb-3">
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryID" class="form-label"></label>
+        <select asp-for="CategoryID" asp-items="ViewBag.Categories" class="form-select">
+            <option value=""></option>
+        </select>
+        <span asp-validation-for="CategoryID" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-secondary">Kaydet</button>
+</form>
